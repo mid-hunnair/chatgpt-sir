@@ -3,20 +3,21 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'gradlew build'
+                bat 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
-                bat 'gradlew test'
+                bat 'mvn test'
             }
         }
         stage('Run') {
             steps {
-                bat 'java -jar build/libs/your-app-name.jar'
+                bat 'java -jar target/your-app-name.jar'
             }
         }
     }
 }
+
 
 
