@@ -1,21 +1,22 @@
 pipeline {
     agent any
     stages {
-        stage('Install') {
+        stage('Build') {
             steps {
-                bat 'pip install -r requirements.txt'
+                bat 'gradlew build'
             }
         }
         stage('Test') {
             steps {
-                bat 'pytest'
+                bat 'gradlew test'
             }
         }
         stage('Run') {
             steps {
-                bat 'python app.py'
+                bat 'java -jar build/libs/your-app-name.jar'
             }
         }
     }
 }
+
 
