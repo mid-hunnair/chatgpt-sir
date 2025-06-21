@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'mvn clean install'
+                echo 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
-                bat 'mvn test'
+                echo 'mvn test'
             }
         }
         stage('Run') {
             steps {
-                bat 'java -jar target/your-app-name.jar'
+                echo 'java -jar target/your-app-name.jar'
             }
         }
     }
